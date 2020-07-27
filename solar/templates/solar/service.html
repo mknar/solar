@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="about-services__item d_flex f_wrap">
+            {% for service in services %}
+                <div class="services__cnt">
+                    <a href="{{ service.get_absolute_url }}">
+                        <div class="services__photo">
+                            <img src="{{ service.image.url }}" alt="jpg">
+                            <div class="services__text">
+                                <strong>{{ service.title }}</strong>
+                                <p>{{ service.short_desc }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <h1>No services found</h1>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

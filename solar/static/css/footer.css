@@ -1,0 +1,139 @@
+footer{
+    background: #F5F5F5;
+}
+.footer-main{
+    padding: 38px 0;
+}
+.footer-logo{
+    max-width: 310px;
+    width: 100%;
+}
+.footer-logo a{
+    max-width: 302px;
+    width: 100%;
+}
+.footer-link{
+    margin: 26px 0;
+}
+.footer-link ul{
+    display: flex;
+    align-items: center;
+}
+.footer-link ul li{
+    margin-right: 14px;
+}
+.footer-link ul li a{
+    width: 34px;
+    height: 34px;
+    background: #EEEEEE;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-name a{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #343A40;
+}
+.footer-info{
+    margin: 0 4px;
+}
+.footer-info strong{
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.3;
+    color: #4C4D4C;
+}
+.footer-info ul{
+    margin-top: 30px;
+}
+.footer-info ul li + li{
+    margin-top: 5px;
+}
+.footer-info ul li a{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #343A40;
+}
+
+.footer-contact strong{
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.3;
+    color: #4C4D4C;
+}
+.footer-contact ul{
+    margin-top: 30px;
+
+}
+.footer-contact ul li + li{
+    margin-top: 10px;
+}
+.footer-contact ul li img{
+    margin-right: 10px;
+    width: 15px;
+}
+.footer-contact ul li{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #343A40;
+    display: flex;
+    align-items: center;
+}
+.footer-contact ul li a{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #343A40;
+    display: block;
+}
+
+@media (max-width: 1169.99px){
+    .footer-logo {
+        max-width: 250px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 991.99px){
+    .footer-main {
+        flex-wrap: wrap;
+    }
+    .footer-contact{
+        margin-top: 20px;
+    }
+}
+@media (max-width: 767.99px){
+    .footer-name a {
+        font-size: 14px;
+    }
+    .footer-logo {
+        max-width: 234px;
+    }
+    .footer-link {
+        margin: 20px 0;
+    }
+    .footer-info strong {
+        font-size: 19px;
+    }
+    .footer-info ul {
+        margin-top: 15px;
+    }
+    .footer-contact ul {
+        margin-top: 15px;
+    }
+}
+@media (max-width: 575.99px){
+
+    .footer-main{
+        flex-direction: column;
+    }
+    .footer-info{
+        margin-top: 15px;
+    }
+
+}

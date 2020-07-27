@@ -1,0 +1,45 @@
+@import "../font/font.css";
+@import "normalize.css";
+@import "jquery.fancybox.css";
+@import "jquery.formstyler.css";
+@import "jquery.formstyler.theme.css";
+@import "../slick/slick.css";
+@import "../slick/slick-theme.css";
+@import "magnific-popup.css";
+@import "header.css";
+@import "footer.css";
+@import "index.css";
+@import "category.css";
+@import "global.css";
+@import "preorder.css";
+@import "contact.css";
+
+
+.btn * {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn *:before {
+    content: "";
+    position: absolute;
+    width: 3em;
+    height: 100%;
+    top: 0;
+    left: -35%;
+    -webkit-transform: skewX(-45deg) translateX(0);
+    -ms-transform: skewX(-45deg) translateX(0);
+    transform: skewX(-45deg) translateX(0);
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.btn *:hover:before {
+    left: 130%;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}

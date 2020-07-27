@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+
+            <div class="pages-blog d_flex f_wrap">
+
+                {% for blog in blogs %}
+                    <div class="pages-blog__block">
+                        <a href="{{ blog.get_absolute_url }}" class="latest-news__box"
+                           style="background-image: url('{{ blog.image.url }}')">
+                            <div class="latest-news__info d_flex j_content_end">
+                                <div class="latest-news__data">
+                                    <span>{{ blog.date|date:"d" }}</span>
+                                    <strong>{{ blog.date|date:"M" }} {{ blog.date|date:"Y" }}</strong>
+                                </div>
+                            </div>
+                            <div class="latest-news__text">
+                                <strong>{{ blog.title }}</strong>
+                                <p>
+                                    {{ blog.short_desc }}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                {% empty %}
+                    <h2>No articles found</h2>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
