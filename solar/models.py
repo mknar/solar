@@ -19,7 +19,7 @@ class pages(models.Model):
     TO_MENU_STATUS_CHOICES = (("0", 'Dont show'), ("1", 'Show'))
     to_menu = models.CharField(choices=TO_MENU_STATUS_CHOICES, max_length=1, default="1", verbose_name='Show to menu')
     sort = models.IntegerField(default=0)
-    file = models.FileField()
+    # file = models.FileField()
 
 
 
