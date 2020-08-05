@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
-from django.http import HttpResponse
 from solar.models import *
 
 
+
 # Create your views here.
+
 def index(request):
     page_list = pages.objects.filter(active="1", to_menu="1")
     return render(request, 'solar/index.html', context={'page_list': page_list})

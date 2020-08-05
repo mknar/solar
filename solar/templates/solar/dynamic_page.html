@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <section>
+    <section>
         <div class="category-fon">
             <div class="container">
                 <div class="category-block">
@@ -12,46 +12,52 @@
             </div>
         </div>
     </section>
-<section>
-    <div class="container">
+    <section>
+        <div class="container">
             <div class="preorder-pages">
                 <div class="preorder-pages__fon extensive-company">
                     {% if page.image %}
-                    <img src="{{ page.image.url }}" alt="png">
+                        <img src="{{ page.image.url }}" alt="png">
                     {% endif %}
                     <strong>{{ page.title|title }}</strong>
                 </div>
                 <div class="preorder-pages__text">
                     <p>
-                        {{ page.content  }}
+                        {{ page.content }}
                     </p>
                 </div>
                 <div class="solar-syustem">
                     <ul>
-                        <li>
-                            <a href="javascript:;">
-                                <div class="solar-syustem__icon">
-                                    <img src="assets/img/Group3.png" alt="png">
-                                </div>
-                                Solar Syustem.pdf
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <div class="solar-syustem__icon">
-                                    <img src="assets/img/Group4.png" alt="png">
-                                </div>
-                                Solar Syustem.exel
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <div class="solar-syustem__icon">
-                                    <img src="assets/img/Group4.png" alt="png">
-                                </div>
-                                Solar Syustem.doc
-                            </a>
-                        </li>
+                        {% if page.file %}
+                            <li>
+                                <a href="{{ page.file.url }}">
+                                    <div class="solar-syustem__icon">
+                                        <img src="assets/img/Group3.png" alt="png">
+                                    </div>
+                                    {{ page.file }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if page.file2 %}
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="solar-syustem__icon">
+                                        <img src="assets/img/Group4.png" alt="png">
+                                    </div>
+                                    Solar Syustem.exel
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if page.file3 %}
+                            <li>
+                                <a href="javascript:;">
+                                    <div class="solar-syustem__icon">
+                                        <img src="assets/img/Group4.png" alt="png">
+                                    </div>
+                                    Solar Syustem.doc
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="solar-syustem__block">
@@ -59,52 +65,55 @@
                         <strong>Video</strong>
                     </div>
                     <div class="solar-syustem__video">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oj8QOSwRM9s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oj8QOSwRM9s"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
                     </div>
                     <div class="solar-syustem__title">
                         <strong>Gallerey</strong>
                     </div>
                     <div class="solar-gallery d_flex f_wrap">
                         <a href="assets/img/solar1.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar1.png" alt = "png" />
+                            <img src="assets/img/solar1.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar2.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar2.png" alt = "png" />
+                            <img src="assets/img/solar2.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar3.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar3.png" alt = "png" />
+                            <img src="assets/img/solar3.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar4.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar4.png" alt = "png" />
+                            <img src="assets/img/solar4.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar5.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar5.png" alt = "png"/>
+                            <img src="assets/img/solar5.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar6.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar6.png" alt = "png" />
+                            <img src="assets/img/solar6.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar7.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar7.png" alt = "png" />
+                            <img src="assets/img/solar7.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar8.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar8.png" alt = "png" />
+                            <img src="assets/img/solar8.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar9.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar9.png" alt = "png" />
+                            <img src="assets/img/solar9.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar10.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar10.png" alt = "png" />
+                            <img src="assets/img/solar10.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar11.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar11.png" alt = "png" />
+                            <img src="assets/img/solar11.png" alt="png"/>
                         </a>
                         <a href="assets/img/solar12.png" data-fancybox="gallery">
-                            <img  src = "assets/img/solar12.png" alt = "png" />
+                            <img src="assets/img/solar12.png" alt="png"/>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
 {% endblock %}

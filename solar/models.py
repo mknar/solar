@@ -1,5 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.core.validators import FileExtensionValidator
+
 
 # Create your models here.
 class pages(models.Model):
@@ -19,9 +21,19 @@ class pages(models.Model):
     TO_MENU_STATUS_CHOICES = (("0", 'Dont show'), ("1", 'Show'))
     to_menu = models.CharField(choices=TO_MENU_STATUS_CHOICES, max_length=1, default="1", verbose_name='Show to menu')
     sort = models.IntegerField(default=0)
-    # file = models.FileField()
+    file = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                            null=True, blank=True, verbose_name='Attach file')
+    file2 = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                             null=True, blank=True, verbose_name='Attach file')
+    file3 = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                             null=True, blank=True, verbose_name='Attach file')
 
+    def delete(self, *args, **kwargs):
+        import os
+        if os.path.isfile(self.file.path):
+            os.remove(self.file.path)
 
+        super(pages, self).delete(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('page_url', kwargs={'slug': self.slug})
@@ -35,6 +47,8 @@ class pages(models.Model):
 
     class Meta:
         ordering = ['sort']
+
+
 
 
 class blog(models.Model):
