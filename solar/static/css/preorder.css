@@ -54,12 +54,27 @@
 .solar-syustem__icon{
     width: 86px;
     height: 86px;
-    background: #F5BB2C;
-    border-radius: 50%;
     margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.icon_pdf{
+    background-image: url("/static/images/pdf.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon_rtf{
+    background-image: url("/static/images/rtf.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon_xlsx{
+    background-image: url("/static/images/xlsx.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .solar-syustem__title{
     background: #F5F6F6;

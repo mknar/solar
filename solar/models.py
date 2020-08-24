@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.core.validators import FileExtensionValidator
+import os
 
 
 # Create your models here.
@@ -28,12 +29,32 @@ class pages(models.Model):
     file3 = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
                              null=True, blank=True, verbose_name='Attach file')
 
-    def delete(self, *args, **kwargs):
-        import os
-        if os.path.isfile(self.file.path):
-            os.remove(self.file.path)
+    def file_extension(self):
+        extension = os.path.splitext(self.file.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
 
-        super(pages, self).delete(*args, **kwargs)
+    def file_extension2(self):
+        extension = os.path.splitext(self.file2.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
+
+    def file_extension3(self):
+        extension = os.path.splitext(self.file3.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
 
     def get_absolute_url(self):
         return reverse('page_url', kwargs={'slug': self.slug})
@@ -47,6 +68,7 @@ class pages(models.Model):
 
     class Meta:
         ordering = ['sort']
+
 
 
 

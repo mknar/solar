@@ -3,7 +3,6 @@ from django.views import View
 from solar.models import *
 
 
-
 # Create your views here.
 
 def index(request):
@@ -31,10 +30,12 @@ def blog_detail(request, slug):
 
 
 def service_detail(request, slug):
-    service_item=get_object_or_404(service, slug__iexact=slug, active="1")
-    page_list=pages.objects.filter(active="1", to_menu="1")
-    page=pages.objects.get(static='service')
-    return render(request, 'solar/service_detail.html', context={'service_item': service_item, 'page_list': page_list, 'page': page})
+    service_item = get_object_or_404(service, slug__iexact=slug, active="1")
+    page_list = pages.objects.filter(active="1", to_menu="1")
+    page = pages.objects.get(static='service')
+    return render(request, 'solar/service_detail.html',
+                  context={'service_item': service_item, 'page_list': page_list, 'page': page})
+
 
 class Blog:
     def blog_controller(self, request, page, page_list):
@@ -58,8 +59,14 @@ class Static_Page(Blog, Service):
 
 class Dynamic_Page:
     def render_dynamic_page(self, request, page):
+        import os
+        file_name = os.path.split(page.file.name)[1]
+        file_name2 = os.path.split(page.file2.name)[1]
+        file_name3 = os.path.split(page.file3.name)[1]
         page_list = pages.objects.filter(active="1", to_menu="1")
-        return render(request, 'solar/dynamic_page.html', context={'page': page, 'page_list': page_list})
+        return render(request, 'solar/dynamic_page.html',
+                      context={'page': page, 'page_list': page_list, 'file_name': file_name, 'file_name2': file_name2,
+                               'file_name3': file_name3})
 
 
 class Page_Controller(View, Dynamic_Page, Static_Page):

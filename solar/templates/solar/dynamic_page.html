@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <section>
@@ -16,45 +17,44 @@
         <div class="container">
             <div class="preorder-pages">
                 <div class="preorder-pages__fon extensive-company">
-                    {% if page.image %}
+                    {% if page.image and page.show_image == "1" %}
                         <img src="{{ page.image.url }}" alt="png">
+                        <strong>{{ page.title|title }}</strong>
                     {% endif %}
-                    <strong>{{ page.title|title }}</strong>
                 </div>
                 <div class="preorder-pages__text">
-                    <p>
-                        {{ page.content }}
-                    </p>
+                    {% if page.content %}
+                        <p>
+                            {{ page.content }}
+                        </p>
+                    {% endif %}
                 </div>
                 <div class="solar-syustem">
                     <ul>
                         {% if page.file %}
                             <li>
                                 <a href="{{ page.file.url }}">
-                                    <div class="solar-syustem__icon">
-                                        <img src="assets/img/Group3.png" alt="png">
+                                    <div class="solar-syustem__icon {{ page.file_extension }}">
                                     </div>
-                                    {{ page.file }}
+                                    {{ file_name }}
                                 </a>
                             </li>
                         {% endif %}
                         {% if page.file2 %}
                             <li>
-                                <a href="javascript:void(0)">
-                                    <div class="solar-syustem__icon">
-                                        <img src="assets/img/Group4.png" alt="png">
+                                <a href="{{ page.file2.url }}">
+                                    <div class="solar-syustem__icon {{ page.file_extension2 }}">
                                     </div>
-                                    Solar Syustem.exel
+                                    {{ file_name2 }}
                                 </a>
                             </li>
                         {% endif %}
                         {% if page.file3 %}
                             <li>
-                                <a href="javascript:;">
-                                    <div class="solar-syustem__icon">
-                                        <img src="assets/img/Group4.png" alt="png">
+                                <a href="{{ page.file3.url }}">
+                                    <div class="solar-syustem__icon {{ page.file_extension3 }}">
                                     </div>
-                                    Solar Syustem.doc
+                                    {{ file_name3 }}
                                 </a>
                             </li>
                         {% endif %}
