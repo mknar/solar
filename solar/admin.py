@@ -1,26 +1,23 @@
 from django.contrib import admin
-from solar.models import pages, blog, service
-from django import forms
-from django.core.validators import FileExtensionValidator
-
-
+from solar.models import pages, blog, service, gallery
 
 
 # Register your models here.
 
-class PageForm(forms.ModelForm):
-    class Meta:
-        model = pages
-        fields = ['title', 'slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3',
-                  'seo_title', 'seo_description', 'seo_keywords']
+class Gallery_Admin(admin.ModelAdmin):
+    list_display = ['id', 'title', 'alt', 'image']
+
+
+
+admin.site.register(gallery, Gallery_Admin)
 
 
 class Page_Admin(admin.ModelAdmin):
-    form = PageForm
     list_display = ['title', 'active', 'to_menu']
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3')
+            'fields': ('title', 'slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3',
+                       'video_url', 'page_gallery')
         }),
         ('SEO', {
             'fields': ('seo_title', 'seo_description', 'seo_keywords')

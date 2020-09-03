@@ -11,8 +11,11 @@ def index(request):
 
 
 def ststic_page_url(static):
-    page = get_object_or_404(pages, active="1", static=static)
-    return str(page.slug)
+    try:
+        page = get_object_or_404(pages, active="1", static=static)
+        return str(page.slug)
+    except:
+        return "test"
 
 
 def get_404_page(request, page, page_list):
@@ -63,10 +66,11 @@ class Dynamic_Page:
         file_name = os.path.split(page.file.name)[1]
         file_name2 = os.path.split(page.file2.name)[1]
         file_name3 = os.path.split(page.file3.name)[1]
+        page_gallery = page.page_gallery.all()
         page_list = pages.objects.filter(active="1", to_menu="1")
         return render(request, 'solar/dynamic_page.html',
                       context={'page': page, 'page_list': page_list, 'file_name': file_name, 'file_name2': file_name2,
-                               'file_name3': file_name3})
+                               'file_name3': file_name3, 'page_gallery': page_gallery})
 
 
 class Page_Controller(View, Dynamic_Page, Static_Page):

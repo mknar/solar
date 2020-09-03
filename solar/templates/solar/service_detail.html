@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}-
+    {% if service_item.seo_title %}{{ service_item.seo_title }}{% else %}{{ service_item.title }}{% endif %}
+{% endblock %}
+
+
+{% block meta_description %}{{ service_item.seo_description }}{% endblock %}
+
+{% block meta_keywords %}{{ service_item.seo_keywords }}{% endblock %}
+
+
 {% block content %}
 <section>
     <div class="category-fon">

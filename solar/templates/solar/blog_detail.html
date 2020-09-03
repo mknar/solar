@@ -1,52 +1,64 @@
 {% extends 'base.html' %}
-{% block content %}
-<section>
-    <div class="category-fon">
-        <div class="container">
-            <div class="category-block">
-                <ul>
-                    <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
-                    <li><a href={{ blog_item.get_absolute_url }}>{{ blog_item.title }}</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
 
-<section>
-    <div class="container">
-        <div class="getting-started d_flex  a_items_start">
-            <div class="getting-started__block">
-                <h3>{{ blog_item.title }}</h3>
-                <div class="getting-started__fon">
-                    <img src="{{ blog_item.image.url }}" alt="jpg">
-                    <div class="latest-news__info d_flex j_content_start">
-                        <div class="latest-news__data">
-                            <span>{{ blog_item.date|date:'d' }}</span>
-                            <strong>{{ blog_item.date|date:'M' }} {{ blog_item.date|date:'Y' }}</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="getting-started__text">
-                    <p>
-                        {{ blog_item.desc }}
-                    </p>
-                </div>
-            </div>
-            <div class="getting-started__item">
-                <h3>Other articles</h3>
-                <div class="getting-started__href">
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}-
+    {% if blog_item.seo_title %}{{ blog_item.seo_title }}{% else %}{{ blog_item.title }}{% endif %}
+{% endblock %}
+
+
+{% block meta_description %}{{ blog_item.seo_description }}{% endblock %}
+
+{% block meta_keywords %}{{ blog_item.seo_keywords }}{% endblock %}
+
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
                     <ul>
-                        <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                        <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                        <li><a href="javascript:;">Getting Started with </a></li>
-                        <li><a href="javascript:;">Getting Started with </a></li>
-                        <li><a href="javascript:;">Getting Started with</a></li>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                        <li><a href={{ blog_item.get_absolute_url }}>{{ blog_item.title }}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="getting-started d_flex  a_items_start">
+                <div class="getting-started__block">
+                    <h3>{{ blog_item.title }}</h3>
+                    <div class="getting-started__fon">
+                        <img src="{{ blog_item.image.url }}" alt="jpg">
+                        <div class="latest-news__info d_flex j_content_start">
+                            <div class="latest-news__data">
+                                <span>{{ blog_item.date|date:'d' }}</span>
+                                <strong>{{ blog_item.date|date:'M' }} {{ blog_item.date|date:'Y' }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="getting-started__text">
+                        <p>
+                            {{ blog_item.desc }}
+                        </p>
+                    </div>
+                </div>
+                <div class="getting-started__item">
+                    <h3>Other articles</h3>
+                    <div class="getting-started__href">
+                        <ul>
+                            <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
+                            <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
+                            <li><a href="javascript:;">Getting Started with </a></li>
+                            <li><a href="javascript:;">Getting Started with </a></li>
+                            <li><a href="javascript:;">Getting Started with</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}
 

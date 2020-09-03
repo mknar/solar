@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock %}
+
+{% block meta_description %}{{ page.seo_description }}{% endblock %}
+
+{% block meta_keywords %}{{ page.seo_keywords }}{% endblock %}
+
 {% block content %}
     <section>
         <div class="category-fon">
@@ -61,56 +69,32 @@
                     </ul>
                 </div>
                 <div class="solar-syustem__block">
-                    <div class="solar-syustem__title">
-                        <strong>Video</strong>
-                    </div>
-                    <div class="solar-syustem__video">
-                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/oj8QOSwRM9s"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    </div>
-                    <div class="solar-syustem__title">
-                        <strong>Gallerey</strong>
-                    </div>
-                    <div class="solar-gallery d_flex f_wrap">
-                        <a href="assets/img/solar1.png" data-fancybox="gallery">
-                            <img src="assets/img/solar1.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar2.png" data-fancybox="gallery">
-                            <img src="assets/img/solar2.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar3.png" data-fancybox="gallery">
-                            <img src="assets/img/solar3.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar4.png" data-fancybox="gallery">
-                            <img src="assets/img/solar4.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar5.png" data-fancybox="gallery">
-                            <img src="assets/img/solar5.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar6.png" data-fancybox="gallery">
-                            <img src="assets/img/solar6.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar7.png" data-fancybox="gallery">
-                            <img src="assets/img/solar7.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar8.png" data-fancybox="gallery">
-                            <img src="assets/img/solar8.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar9.png" data-fancybox="gallery">
-                            <img src="assets/img/solar9.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar10.png" data-fancybox="gallery">
-                            <img src="assets/img/solar10.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar11.png" data-fancybox="gallery">
-                            <img src="assets/img/solar11.png" alt="png"/>
-                        </a>
-                        <a href="assets/img/solar12.png" data-fancybox="gallery">
-                            <img src="assets/img/solar12.png" alt="png"/>
-                        </a>
-                    </div>
+                    {% if page.video_url %}
+                        <div class="solar-syustem__title">
+                            <strong>Video</strong>
+                        </div>
+                        <div class="solar-syustem__video">
+                            <iframe width="100%" height="100%"
+                                    src="https://www.youtube.com/embed/{{ page.video_url|cut:"https://www.youtube.com/watch?v=" }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    {% endif %}
+                    {% if page_gallery %}
+                        <div class="solar-syustem__title">
+                            <strong>Gallerey</strong>
+                        </div>
+                        <div class="solar-gallery d_flex f_wrap">
+                            {% for img in page_gallery %}
+                                <a href="{{ img.image.url }}" data-fancybox="gallery">
+                                    <img src="{{ img.image.url }}" alt="{{ img.alt }}"
+                                         title="{{ img.title }}"/>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
