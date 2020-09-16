@@ -7,7 +7,12 @@ from solar.models import *
 
 def index(request):
     page_list = pages.objects.filter(active="1", to_menu="1")
-    return render(request, 'solar/index.html', context={'page_list': page_list})
+    home_slides = MainSlide.objects.filter(active="1")
+    home_blogs = blog.objects.filter(active="1")[:4]
+    home_services = service.objects.filter(active="1")[:8]
+    return render(request, 'solar/index.html',
+                  context={'page_list': page_list, 'home_slides': home_slides, 'home_blogs': home_blogs,
+                           'home_services': home_services})
 
 
 def ststic_page_url(static):
@@ -15,7 +20,7 @@ def ststic_page_url(static):
         page = get_object_or_404(pages, active="1", static=static)
         return str(page.slug)
     except:
-        return "test"
+        return "test_migrations_url"
 
 
 def get_404_page(request, page, page_list):
@@ -26,18 +31,21 @@ def get_404_page(request, page, page_list):
 
 def blog_detail(request, slug):
     blog_item = get_object_or_404(blog, active="1", slug__iexact=slug)
+    other_blogs = blog.objects.filter(active="1").exclude(title=blog_item.title)[:8]
     page_list = pages.objects.filter(active="1", to_menu="1")
     page = pages.objects.get(static='blog')
     return render(request, 'solar/blog_detail.html',
-                  context={'blog_item': blog_item, 'page_list': page_list, 'page': page})
+                  context={'blog_item': blog_item, 'page_list': page_list, 'page': page, 'other_blogs': other_blogs})
 
 
 def service_detail(request, slug):
     service_item = get_object_or_404(service, slug__iexact=slug, active="1")
+    other_services = service.objects.filter(active="1").exclude(title=service_item.title)[:8]
     page_list = pages.objects.filter(active="1", to_menu="1")
     page = pages.objects.get(static='service')
     return render(request, 'solar/service_detail.html',
-                  context={'service_item': service_item, 'page_list': page_list, 'page': page})
+                  context={'service_item': service_item, 'page_list': page_list, 'page': page,
+                           'other_services': other_services})
 
 
 class Blog:

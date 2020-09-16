@@ -1,15 +1,16 @@
 from django.contrib import admin
-from solar.models import pages, blog, service, gallery
+from solar.models import *
+from django import forms
 
 
 # Register your models here.
 
-class Gallery_Admin(admin.ModelAdmin):
+
+class GalleryAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'alt', 'image']
 
 
-
-admin.site.register(gallery, Gallery_Admin)
+admin.site.register(gallery, GalleryAdmin)
 
 
 class Page_Admin(admin.ModelAdmin):
@@ -56,3 +57,13 @@ class Service_Admin(admin.ModelAdmin):
 
 
 admin.site.register(service, Service_Admin)
+
+
+class MainSlide_Admin(admin.ModelAdmin):
+    exclude = ['sort']
+    list_display = ['id', 'title']
+
+
+admin.site.register(MainSlide, MainSlide_Admin)
+
+

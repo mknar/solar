@@ -9,7 +9,7 @@
     <meta name="keywords" content="{% block meta_keywords %}Home{% endblock %}">
     <title>{% block title %}Home{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'solar/css/style.css' %}">
 </head>
 <body>
 <header>
@@ -17,19 +17,19 @@
         <div class="header-main d_flex a_items_center j_content_between">
             <div class="header-logo">
                 <a href="{% url 'home_page_url' %}">
-                    <img src="{% static 'images/logo.png' %}" alt="png">
+                    <img src="{% static 'solar/images/logo.png' %}" alt="png">
                 </a>
             </div>
             <div class="header-info d_flex a_items_center">
                 <a href="mailto: Info@solar.com" class="header-href">
-                    <img src="{% static 'images/icon1.png' %}" alt="png">
+                    <img src="{% static 'solar/images/icon1.png' %}" alt="png">
                     <div class="header-link">
                         <p>Send Messages</p>
                         <strong>Info@solar.com</strong>
                     </div>
                 </a>
                 <a href="javascript:;" class="header-href">
-                    <img src="{% static 'images/icon2.png' %}" alt="png">
+                    <img src="{% static 'solar/images/icon2.png' %}" alt="png">
                     <div class="header-link">
                         <p>Office address</p>
                         <strong>RA, Isahakyan 25</strong>
@@ -37,7 +37,7 @@
                 </a>
                 <a href="tel: +37400 00 00 00" class="header-href">
 
-                    <img src="{% static 'images/phone.png' %}" alt="png">
+                    <img src="{% static 'solar/images/phone.png' %}" alt="png">
                     <div class="header-link">
                         <p>Custumer Support</p>
                         <strong>+37400 00 00 00</strong>
@@ -197,13 +197,13 @@
     </div>
 </footer>
 
-<script src="{% static 'javascript/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'javascript/jquery.fancybox.js' %}"></script>
-<script src="{% static 'javascript/jquery.formstyler.min.js' %}"></script>
-<script src="{% static 'javascript/jquery.magnific-popup.js' %}"></script>
-<script src="{% static 'javascript/jquery.magnific-popup.min.js' %}"></script>
-<script src="{% static 'slick/slick.min.js' %}"></script>
-<script src="{% static 'javascript/script.js' %}"></script>
+<script src="{% static 'solar/javascript/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'solar/javascript/jquery.fancybox.js' %}"></script>
+<script src="{% static 'solar/javascript/jquery.formstyler.min.js' %}"></script>
+<script src="{% static 'solar/javascript/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'solar/javascript/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'solar/slick/slick.min.js' %}"></script>
+<script src="{% static 'solar/javascript/script.js' %}"></script>
 <script>
     $(document).ready(function () {
         $('select').styler();

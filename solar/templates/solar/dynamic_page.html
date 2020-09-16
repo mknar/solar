@@ -33,7 +33,9 @@
                 <div class="preorder-pages__text">
                     {% if page.content %}
                         <p>
-                            {{ page.content }}
+                            {% autoescape off %}
+                                {{ page.content }}
+                            {% endautoescape %}
                         </p>
                     {% endif %}
                 </div>

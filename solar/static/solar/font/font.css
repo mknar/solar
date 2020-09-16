@@ -1,0 +1,205 @@
+
+
+@font-face {
+    font-family: 'SegoeUI-Bold';
+    src: url('SegoeUI-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'SegoeUI-Italic';
+    src: url('SegoeUI-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'SegoeUI-Light';
+    src: url('SegoeUI-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'SegoeUI';
+    src: url('SegoeUI.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'SegoeUI-SemiBold';
+    src: url('SegoeUI-SemiBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+
+
+@font-face {
+    font-family: 'HelveticaBlack';
+    src: url('HelveticaBlack.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'HelveticaBold';
+    src: url('HelveticaBold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'HelveticaItalic';
+    src: url('HelveticaItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaLight';
+    src: url('HelveticaLight.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'HelveticaRegular';
+    src: url('HelveticaRegular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaMedium';
+    src: url('HelveticaMedium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+
+@font-face {
+    font-family: 'HelveticaNeueCyr-Black';
+    src: url('HelveticaNeueCyr-Black.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCyr-Bold';
+    src: url('HelveticaNeueCyr-Bold.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCyr-Italic';
+    src: url('HelveticaNeueCyr-Italic.ttf') format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCyr-Light';
+    src: url('HelveticaNeueCyr-Light.ttf') format('truetype');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticaNeueCyr-Thin';
+    src: url('HelveticaNeueCyr-Thin.ttf') format('truetype');
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCyr-Medium';
+    src: url('HelveticaNeueCyr-Medium.ttf') format('truetype');
+    font-style: normal;
+}
+
+
+
+@font-face {
+    font-family: 'Ramaraja-Regular';
+    src: url('Ramaraja-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Black.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-BlackItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Italic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-LightItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-MediumItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-Thin.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100;
+}
+

@@ -12,47 +12,49 @@
 
 
 {% block content %}
-<section>
-    <div class="category-fon">
-        <div class="container">
-            <div class="category-block">
-                <ul>
-                    <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
-                    <li><a href={{ service_item.get_absolute_url }}>{{ service_item.title }}</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="getting-started d_flex  a_items_start">
-            <div class="getting-started__block">
-                <h3>{{ service_item.title }}</h3>
-                <div class="getting-started__fon">
-                    <img src="{{ service_item.image.url }}" alt="jpg">
-                </div>
-                <div class="getting-started__text">
-                    <p>
-                        {{ service_item.desc }}
-                    </p>
-                </div>
-            </div>
-            <div class="getting-started__item">
-                <h3>Other articles</h3>
-                <div class="getting-started__href">
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
                     <ul>
-                        <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                        <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                        <li><a href="javascript:;">Getting Started with </a></li>
-                        <li><a href="javascript:;">Getting Started with </a></li>
-                        <li><a href="javascript:;">Getting Started with</a></li>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                        <li><a href={{ service_item.get_absolute_url }}>{{ service_item.title }}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="getting-started d_flex  a_items_start">
+                <div class="getting-started__block">
+                    <h3>{{ service_item.title }}</h3>
+                    <div class="getting-started__fon">
+                        <img src="{{ service_item.image.url }}" alt="jpg">
+                    </div>
+                    <div class="getting-started__text">
+                        <p>
+                            {% autoescape off %}
+                                {{ service_item.desc }}
+                            {% endautoescape %}
+                        </p>
+                    </div>
+                </div>
+                {% if other_services %}
+                    <div class="getting-started__item">
+                        <h3>Other articles</h3>
+                        <div class="getting-started__href">
+                            <ul>
+                                {% for service in other_services %}
+                                    <li><a href="{{ service.get_absolute_url }}">{{ service.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
 

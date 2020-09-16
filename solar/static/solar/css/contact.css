@@ -1,0 +1,434 @@
+.contact-pages{
+    margin: 60px 0 30px;
+}
+.contact-map{
+    width: 100%;
+    height: 353px;
+}
+.contact__main{
+    margin-top: 35px;
+}
+.contact__main strong{
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 1.3;
+    color: #F5BB2C;
+}
+.contact__info{
+    margin-top: 20px;
+}
+.contact__item{
+    margin-top: 25px;
+}
+.contact__item ul li{
+    display: flex;
+    align-items: center;
+}
+.contact__item ul li + li{
+    margin-top: 25px;
+}
+.contact__icon{
+    width: 60px;
+    height: 60px;
+    background: #F7F7F7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.contact__text span{
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.3;
+    color: #BCBBBB;
+    display: block;
+    margin-bottom: 10px;
+}
+.contact__text p{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #373535;
+}
+.contact__text a{
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #373535;
+}
+.contact__form{
+    max-width: 1040px;
+    width: 100%;
+    margin-left: 15px;
+}
+.contact__cnt{
+    max-width: 338px;
+    width: 100%;
+}
+.contact__inp{
+    width: 100%;
+}
+.contact__inp + .contact__inp{
+    margin-top: 23px;
+}
+.contact__inp label{
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #646464;
+    display: block;
+    margin-bottom: 15px;
+}
+.contact__inp input{
+    width: 100%;
+    height: 65px;
+    background: #F7F7F7;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #646464;
+    padding-left: 15px;
+}
+.contact__textarea{
+    max-width: 679px;
+    width: 100%;
+}
+.contact__textarea label{
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #646464;
+}
+.contact__textarea textarea{
+    width: 100%;
+    height: 320px;
+    border: unset;
+    background: #F7F7F7;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #646464;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+.contact__flex{
+    margin-top: 23px;
+}
+.contact__btn{
+    width: 150px;
+}
+.contact__btn button{
+    width: 100%;
+    height: 50px;
+    background: rgba(245, 187, 44, 0.6);
+    font-weight: normal;
+    font-size: 20px;
+    color: #000000;
+    transition: 0.4s;
+}
+.contact__btn button:hover{
+    background: rgba(245, 187, 44,1);
+    transition: 0.4s;
+    color: #FFFFFF;
+
+}
+/*============-register.html-style-start-===============*/
+.ecology-best{
+    margin: 30px 0;
+}
+.ecology-best__title h3{
+    max-width: 600px;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 1.4;
+    color: #F5BB2C;
+}
+.ecology-best__title p{
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666666;
+    margin-top: 15px;
+}
+.ecology-best__form{
+    margin-top: 50px;
+    width: 100%;
+}
+.ecology-best__form .contact__inp{
+    max-width: 338px;
+    margin-right: 10px;
+
+}
+.ecology-best__form .contact__inp + .contact__inp{
+    margin-top: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.sauna-robinson__sel{
+    max-width: 338px;
+    width: 100%;
+
+}
+.sauna-robinson__sel p{
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3;
+    color: #646464;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.sauna-robinson__sel .jq-selectbox {
+    width: 100%;
+    background: #F7F7F7;
+}
+.sauna-robinson__sel .jq-selectbox__select-text{
+    width: 100%;
+    font-weight: normal;
+    font-size: 16px;
+    color: #C3C3C8;
+    padding: 20px 10px;
+}
+.sauna-robinson__sel  .jq-selectbox__select{
+    position: relative;
+    height: 65px;
+}
+
+.sauna-robinson__sel  .jq-selectbox__select:after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background-image: url("../img/Polygon2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10px;
+    height: 6px;
+}
+
+.sauna-robinson__sel .jq-selectbox li {
+    font-weight: normal;
+    font-size: 16px;
+    color: #8f8f91;
+    padding: 11px 10px 11px;
+    height: 40px;
+    min-height: 40px;
+}
+.sauna-robinson__sel .jq-selectbox li:hover{
+    background-color: #A3ABB1;
+    color: #FFF;
+}
+
+.sauna-robinson__sel + .sauna-robinson__sel .jq-selectbox__select-text{
+    padding: 17px 0;
+
+}
+
+
+/*============-register.html-style-end-===============*/
+
+
+@media (max-width: 1399.99px){
+    .contact__form {
+        max-width: 920px;
+    }
+    .contact__textarea {
+        max-width: 565px;
+    }
+}
+@media (max-width: 1299.99px){
+    .contact-pages {
+        margin: 50px 0 30px;
+    }
+    .contact__main {
+        margin-top: 30px;
+    }
+    .contact__main strong {
+        font-size: 40px;
+    }
+    .contact__cnt {
+        max-width: 310px;
+    }
+    .contact__inp input {
+        height: 60px;
+    }
+    .contact__inp + .contact__inp {
+        margin-top: 18px;
+    }
+    .contact__textarea textarea {
+        height: 294px;
+    }
+    .contact__textarea {
+        max-width: 499px;
+    }
+    .contact__text span {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    .contact__call{
+        flex-direction: column;
+    }
+    .contact__form {
+        max-width: 825px;
+    }
+    .sauna-robinson__sel  .jq-selectbox__select{
+        height: 60px;
+    }
+    .ecology-best__title h3 {
+        font-size: 45px;
+    }
+}
+@media (max-width: 1169.99px){
+    .contact__info {
+        flex-direction: column;
+    }
+    .contact__main {
+        margin-top: 25px;
+    }
+    .contact__main strong {
+        font-size: 35px;
+    }
+    .contact__item {
+        margin-top: 0px;
+    }
+    .contact__call {
+        flex-direction: row;
+    }
+    .contact__form {
+        max-width: 945px;
+        margin-left: 0;
+        margin-top: 25px;
+    }
+    .contact__cnt {
+        max-width: 345px;
+    }
+    .contact__textarea {
+        max-width: 570px;
+        margin-left: 20px;
+    }
+    .ecology-best__title p {
+        font-size: 17px;
+    }
+
+}
+@media (max-width: 991.99px){
+    .ecology-best__form .contact__inp label {
+        font-size: 17px;
+    }
+    .sauna-robinson__sel p {
+        font-size: 17px;
+    }
+    .ecology-best__form .contact__block{
+        flex-wrap: wrap;
+    }
+    .ecology-best__form .contact__inp{
+        margin-bottom: 20px;
+        margin-right: 0;
+
+    }
+}
+
+@media (max-width: 767.99px){
+    .ecology-best__form .contact__inp{
+        max-width: 100%;
+    }
+    .sauna-robinson__sel {
+        max-width: 100%;
+    }
+    .contact-map {
+        width: 100%;
+        height: 300px;
+    }
+    .ecology-best__title h3 {
+        font-size: 30px;
+        max-width: 410px;
+    }
+    .ecology-best__title p {
+        font-size: 15px;
+    }
+    .ecology-best__form {
+        margin-top: 30px;
+        width: 100%;
+    }
+    .sauna-robinson__sel .jq-selectbox__select {
+        height: 50px;
+    }
+
+    .contact-pages {
+        margin: 35px 0 30px;
+    }
+    .contact__main strong {
+        font-size: 30px;
+    }
+    .contact__info {
+        margin-top: 15px;
+    }
+    .contact__block{
+        flex-direction: column;
+    }
+    .contact__textarea {
+        max-width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    .contact__cnt {
+        max-width: 100%;
+    }
+}
+@media (max-width: 575.99px){
+    .contact-pages {
+        margin: 25px 0 25px;
+    }
+    .contact__main strong {
+        font-size: 24px;
+    }
+    .contact__main {
+        margin-top: 15px;
+    }
+    .contact__text span {
+        font-size: 16px;
+    }
+    .contact__item ul li + li {
+        margin-top: 20px;
+    }
+    .contact__call{
+        flex-direction: column;
+    }
+    .contact__inp label {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .contact__inp input {
+        height: 50px;
+        font-size: 16px;
+    }
+    .contact__textarea textarea {
+        height: 230px;
+        font-size: 16px;
+    }
+    .contact__textarea label {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .contact__flex {
+        margin-top: 15px;
+    }
+    .contact__btn{
+        width: 120px;
+    }
+    .contact__btn button {
+        height: 45px;
+        font-size: 15px;
+    }
+
+}

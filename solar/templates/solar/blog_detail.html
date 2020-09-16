@@ -41,22 +41,24 @@
                     </div>
                     <div class="getting-started__text">
                         <p>
-                            {{ blog_item.desc }}
+                            {% autoescape off %}
+                                {{ blog_item.desc }}
+                            {% endautoescape %}
                         </p>
                     </div>
                 </div>
-                <div class="getting-started__item">
-                    <h3>Other articles</h3>
-                    <div class="getting-started__href">
-                        <ul>
-                            <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                            <li><a href="javascript:;">Getting Started with Residential Solar Power</a></li>
-                            <li><a href="javascript:;">Getting Started with </a></li>
-                            <li><a href="javascript:;">Getting Started with </a></li>
-                            <li><a href="javascript:;">Getting Started with</a></li>
-                        </ul>
+                {% if other_blogs %}
+                    <div class="getting-started__item">
+                        <h3>Other articles</h3>
+                        <div class="getting-started__href">
+                            <ul>
+                                {% for blog in other_blogs %}
+                                    <li><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </section>

@@ -1,7 +1,9 @@
 from django.db import models
 from django.shortcuts import reverse
 from django.core.validators import FileExtensionValidator
+from ckeditor_uploader.fields import RichTextUploadingField
 import os
+
 
 
 # Create your models here.
@@ -11,7 +13,9 @@ class blog(models.Model):
     title = models.CharField(max_length=500)
     slug = models.SlugField(max_length=65, null=True, unique=True, verbose_name='Change URL')
     short_desc = models.TextField(max_length=1500, verbose_name='Short Description')
-    desc = models.TextField(verbose_name='Description')
+    desc = RichTextUploadingField(blank=True, null=True, verbose_name='Description',
+                                  external_plugin_resources=[
+                                      ('youtube', '/static/ckeditor/ckeditor/plugins/youtube/', 'plugin.js')])
     date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='media/blog', blank=True)
     sort = models.IntegerField(default=0)
@@ -32,14 +36,16 @@ class blog(models.Model):
         return super(blog, self).save()
 
     class Meta:
-        ordering = ['sort']
+        ordering = ['-date']
 
 
 class service(models.Model):
     title = models.CharField(max_length=500)
     slug = models.SlugField(max_length=65, null=True, unique=True, verbose_name='Change URL')
     short_desc = models.TextField(max_length=1500, verbose_name='Short Description')
-    desc = models.TextField(verbose_name='Description')
+    desc = RichTextUploadingField(blank=True, null=True, verbose_name='Description',
+                                  external_plugin_resources=[
+                                      ('youtube', '/static/ckeditor/ckeditor/plugins/youtube/', 'plugin.js')])
     image = models.ImageField(upload_to='media/service', blank=True)
     sort = models.ImageField(default=0)
     ACTIVE_STATUS_CHOICES = (("0", 'Disabled'), ("1", 'Active'))
@@ -77,7 +83,9 @@ class pages(models.Model):
     image = models.ImageField(upload_to='media/pages', null=True, blank=True, verbose_name='Cover image')
     IMAGE_STATUS_CHOICES = (("0", 'Disabled'), ("1", 'Active'))
     show_image = models.CharField(max_length=1, choices=IMAGE_STATUS_CHOICES, default="1")
-    content = models.TextField(blank=True)
+    content = RichTextUploadingField(blank=True, null=True,
+                                     external_plugin_resources=[
+                                         ('youtube', '/static/ckeditor/ckeditor/plugins/youtube/', 'plugin.js')])
     STATIC_PAGE_CHOICES = (('contact', 'contact'), ('blog', 'blog'), ('null', 'null'))
     static = models.CharField(max_length=25, choices=STATIC_PAGE_CHOICES, default='null')
     seo_title = models.CharField(max_length=200, blank=True)
@@ -96,7 +104,6 @@ class pages(models.Model):
                              null=True, blank=True, verbose_name='Attach file')
     video_url = models.SlugField(max_length=250, verbose_name='YouTube Video ID', null=True)
     page_gallery = models.ManyToManyField(gallery, blank=True)
-
 
     def file_extension(self):
         extension = os.path.splitext(self.file.name)[1]
@@ -137,3 +144,22 @@ class pages(models.Model):
 
     class Meta:
         ordering = ['sort']
+
+
+class MainSlide(models.Model):
+    ACTIVE_STATUS_CHOICES = (("0", 'Disabled'), ("1", 'Active'))
+    active = models.CharField(choices=ACTIVE_STATUS_CHOICES, max_length=1, default="1")
+    image = models.ImageField(upload_to='media/slides')
+    alt = models.CharField(max_length=150, blank=True)
+    img_title = models.CharField(max_length=150, blank=True)
+    title = models.CharField(max_length=200, blank=True)
+    btn_link = models.URLField(blank=True)
+    btn_title = models.CharField(max_length=100, blank=True)
+    sort = models.IntegerField(default=0)
+
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        ordering= ['sort']
