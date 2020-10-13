@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock %}
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ category.get_absolute_url }}">{{ category.name|title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="category__main d_flex j_content_between">
+                <div class="category__item">
+                    <ul>
+                        {% for category in categorys %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category.name }}
+                                <div class="category-circle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="42" height="17" viewBox="0 0 42 17"
+                                         fill="none">
+                                        <path d="M1.62627 9.61445L38.4592 9.61445L32.6753 15.3983C32.3655 15.7082 32.3655 16.21 32.6753 16.5198C32.9851 16.8296 33.487 16.8296 33.7967 16.5198L40.9344 9.3821C41.2442 9.07228 41.2442 8.57041 40.9344 8.26067L33.7967 1.123C33.6418 0.968126 33.4389 0.890652 33.236 0.890652C33.0331 0.890652 32.8301 0.968126 32.6752 1.123C32.3654 1.43282 32.3654 1.93468 32.6752 2.24443L38.4591 8.02832L1.62627 8.02832C1.18791 8.02832 0.833173 8.38305 0.833173 8.82142C0.833172 9.25979 1.1879 9.61445 1.62627 9.61445Z"
+                                              fill="#D0CCC2" fill-opacity="0.4"/>
+                                    </svg>
+                                </div>
+                            </a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="category__cnt d_flex j_content_between f_wrap">
+                    {% for product in products %}
+                        <div class="spare-parts__info">
+                            <div class="spare-parts__main d_flex">
+                                <a href="javascript:;" class="spare-parts__cars__img">
+                                    <img src="{{ product.image.url }}" alt="png">
+                                </a>
+                                <div class="spare-parts__name">
+                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                    <span># {{ product.cod }}</span>
+                                    <p>{{ product.short_desc }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <h2 style="margin: 0% auto">No products found</h2>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if products.has_other_pages %}
+                <div class="pagination">
+                    <ul>
+                        {% if products.has_previous %}
+                            <li><a href="?page={{ products.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><a>&laquo;</a></li>
+                        {% endif %}
+
+                        {% for i in products.paginator.page_range %}
+                            {% if products.number == i %}
+                                <a class="active" href="?page={{ i }}">{{ i }}</a>
+                            {% elif i > products.number|add:-3 and i < products.number|add:3 %}
+                                <a href="?page={{ i }}">{{ i }}</a>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if products.has_next %}
+                            <li><a href="?page={{ products.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><a>&raquo;</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

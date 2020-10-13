@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ category.get_absolute_url }}">{{ category.name|title }}</a><span
+                                style="color: white"> - </span><a
+                                href="{{ product.get_absolute_url }}">{{ product.name|title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="ignition-control">
+                <div class="ignition-control__block d_flex j_content_between">
+                    <div class="product__info">
+                        <div class="product__info__slider">
+                            <div class="ignition-control__img">
+                                <a href="{{ product.image.url }}" data-fancybox="gallery">
+                                    <img src="{{ product.image.url }}" alt="png">
+                                </a>
+                            </div>
+                            <div class="ignition-control__img">
+                                <a href="assets/img/brown-bear.png" data-fancybox="gallery">
+                                    <img src="assets/img/brown-bear.png" alt="png">
+                                </a>
+                            </div>
+                            <div class="ignition-control__img">
+                                <a href="assets/img/brown-bear.png" data-fancybox="gallery">
+                                    <img src="assets/img/brown-bear.png" alt="png">
+                                </a>
+                            </div>
+                            <div class="ignition-control__img">
+                                <a href="assets/img/brown-bear.png" data-fancybox="gallery">
+                                    <img src="assets/img/brown-bear.png" alt="png">
+                                </a>
+                            </div>
+                            <div class="ignition-control__img">
+                                <a href="assets/img/brown-bear.png" data-fancybox="gallery">
+                                    <img src="assets/img/brown-bear.png" alt="png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="product__slider__small">
+                            <div class="product__small__slider">
+                                <div class="product__small__photo">
+                                    <img src="assets/img/sweater.png" alt="png">
+                                </div>
+                            </div>
+                            <div class="product__small__slider">
+                                <div class="product__small__photo">
+                                    <img src="assets/img/sweater.png" alt="png">
+                                </div>
+                            </div>
+                            <div class="product__small__slider">
+                                <div class="product__small__photo">
+                                    <img src="assets/img/sweater.png" alt="png">
+                                </div>
+                            </div>
+                            <div class="product__small__slider">
+                                <div class="product__small__photo">
+                                    <img src="assets/img/sweater.png" alt="png">
+                                </div>
+                            </div>
+                            <div class="product__small__slider">
+                                <div class="product__small__photo">
+                                    <img src="assets/img/sweater.png" alt="png">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="ignition-control__info">
+                        <a href="javascript:;">{{ product.name }}</a>
+                        <div class="ignition-control__item d_flex">
+                            <div class="ignition-control__id">
+                                <span># {{ product.cod }}</span>
+                            </div>
+                            {% if product.pdf_file %}
+                                <div class="ignition-control__download">
+                                    <a href="{{ product.pdf_file.url }}" target="_blank"><img
+                                            src="{% static 'solar/images/pdf.png' %}"
+                                            alt="png">Danwload
+                                        PDF file</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="ignition-control__main">
+                            <div class="characteristics__item reviews-min-text-hrefs">
+                                <ul class="d_flex">
+                                    {% if product.desc1 %}
+                                        <li class="click-reviews country-city-min active-href"
+                                            data-catalog="description">
+                                            DESCRIPTION
+                                        </li>
+                                    {% endif %}
+                                    {% if product.desc2 %}
+                                        <li class="click-reviews country-city-min " data-catalog="characteristics">
+                                            CHARACTERISTICS
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="reviews-min-info ">
+                                <div class="reviews-min-block-js" data-catalog="description">
+                                    <div class="ignition-control__cnt">
+                                        {% autoescape off %}
+                                            <p>
+                                                {{ product.desc1 }}
+                                            </p>
+                                        {% endautoescape %}
+                                    </div>
+                                </div>
+                                <div class="reviews-min-block-js" data-catalog="characteristics">
+                                    <div class="ignition-control__cnt">
+                                        {% autoescape off %}
+                                            <p>
+                                                {{ product.desc2 }}
+                                            </p>
+                                        {% endautoescape %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if product.related_products %}
+                <div class="related-product">
+                    <div class="about-services__line">
+                        <div class="about-services__box">
+                            <strong>Related Products</strong>
+                        </div>
+                    </div>
+                    <div class="spare-parts__slid">
+                        <div class="spare-parts__box">
+                            <div class="spare-parts__cars">
+                                {% for product in related_products %}
+                                    <div class="spare-parts__info">
+                                        <div class="spare-parts__main d_flex">
+                                            <a href="{{ product.get_absolute_url }}" class="spare-parts__cars__img">
+                                                <img src="{{ product.image.url }}" alt="png">
+                                            </a>
+                                            <div class="spare-parts__name">
+                                                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                                <span># {{ product.cod }}</span>
+                                                <p>{{ product.short_desc }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

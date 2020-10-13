@@ -30,71 +30,60 @@
         <div class="container">
             <div class="ecology__info d_flex a_items_end j_content_between">
                 <div class="ecology__text">
-                    <h2>Ecology Is Your Best Investment</h2>
+                    <h2>{{ home_about.title }}</h2>
                     <p>
-                        Solarin is a leader in energy-saving industry in the ARMENIA. The company was established in
-                        2006
-                        and soon
-                        gained a reputation of trusted company.Solarin is a leader in energy-saving industry in the
-                        ARMENIA.
-                        The company was established in 2006 and soon gained a reputation of
-                        trusted company.Solarin is a leader in energy-saving industry in the ARMENIA.
-                        The company was established in 2006 and soon gained a
-                        reputation of trusted company.Solarin is a leader in energy-saving industry in the ARMENIA.
-                        The company was established in 2006 and soon gained a reputation of trusted company.Solarin
-                        is a leader in energy-saving industry
+                        {% autoescape off %}
+                            {{ home_about.desc }}
+                        {% endautoescape %}
                     </p>
                 </div>
                 <div class="ecology__fon">
-                    <img src="assets/img/Mask-Group.png" alt="png">
-                    <div class="ecology__logo">
-                        <img src="assets/img/Group5214.png" alt="png">
-                    </div>
+                    <img src="{{ home_about.image.url }}" alt="png">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="energy-long__fon" style="background-image: url('assets/img/featured1.png')">
+    <section class="energy-long__fon">
         <div class="container">
             <div class="energy-long__block">
                 <div class="energy-long__item">
-                    <h2>ENERGY FOR THE LONG RUN</h2>
+                    <h2>{{ home_about.baner_title }}</h2>
                     <div class="energy-long__info d_flex f_wrap">
                         <div class="energy-long__cnt">
-                            <a href="javascript:;">
+                            <a>
                                 <div class="energy-long__icon">
-                                    <img src="assets/img/icon05.png" alt="png">
+                                    <img src="{{ home_about.icon1.url }}" alt="png">
                                 </div>
-                                <strong>2001</strong>
-                                <p>Company Established</p>
+                                <strong>{{ home_about.number1 }}</strong>
+                                <p>{{ home_about.text1 }}</p>
                             </a>
                         </div>
                         <div class="energy-long__cnt">
-                            <a href="javascript:;">
+                            <a>
                                 <div class="energy-long__icon">
-                                    <img src="assets/img/icon06.png" alt="png">
+                                    <img src="{{ home_about.icon2.url }}" alt="png">
                                 </div>
-                                <strong>156</strong>
-                                <p>Projects Done</p>
+                                <strong>{{ home_about.number2 }}</strong>
+                                <p>{{ home_about.text2 }}</p>
                             </a>
                         </div>
                         <div class="energy-long__cnt">
-                            <a href="javascript:;">
+                            <a>
                                 <div class="energy-long__icon">
-                                    <img src="assets/img/icon07.png" alt="png">
+                                    <img src="{{ home_about.icon3.url }}" alt="png">
                                 </div>
-                                <strong>700</strong>
-                                <p>Happy Clients</p>
+                                <strong>{{ home_about.number3 }}</strong>
+                                <p>{{ home_about.text3 }}</p>
                             </a>
                         </div>
                         <div class="energy-long__cnt">
-                            <a href="javascript:;">
+                            <a>
                                 <div class="energy-long__icon">
-                                    <img src="assets/img/icon02.png" alt="png">
+                                    <img src="{{ home_about.icon4.url }}" alt="png">
                                 </div>
-                                <strong>25+</strong>
-                                <p>Business Parthners</p>
+                                <strong>{{ home_about.number4 }}</strong>
+                                <p>{{ home_about.text4 }}</p>
                             </a>
                         </div>
                     </div>
@@ -134,8 +123,10 @@
 
 
     <section>
+
         <div class="container">
             <div class="about-services">
+                {% if home_products_block1 %}
                 <div class="about-services__line">
                     <div class="about-services__box">
                         <strong>Spare parts for cars</strong>
@@ -263,23 +254,12 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="searching__fon" style="background-image: url('assets/img/bgn-searching.png')">
-                    <div class="searching__main d_flex j_content_end">
-                        <div class="searching__block">
-                            <h3>Searching for a First-Class Consultant?</h3>
-                            <strong>GET SOLUTIONS FAST</strong>
-                            <div class="environment__href d_flex j_content_end">
-                                <a href="javascript:;">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
 
 
                 <div class="about-services__line">
                     <div class="about-services__box">
-                        <strong>Spare parts for cars</strong>
+                        <strong>Spare parts for cars2</strong>
                     </div>
                 </div>
                 <div class="spare-parts__slid">
@@ -442,7 +422,7 @@
     </section>
     <section>
         <div class="fo__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d24379.384091880172!2d44.477989449999995!3d40.1996524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1580555306616!5m2!1sru!2s"
+            <iframe src="{{ home_contact.map }}"
                     width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
     </section>

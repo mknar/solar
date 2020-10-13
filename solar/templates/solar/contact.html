@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="contact-pages">
+                {% if contact_content.map %}
+                    <div class="contact-map">
+                        <iframe src="{{ contact_content.map }}"
+                                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                {% endif %}
+                <div class="contact__main">
+                    <strong>CONTACT INFO</strong>
+                    <div class="contact__info d_flex j_content_between">
+                        <div class="contact__item">
+                            <ul>
+                                <li>
+                                    <div class="contact__icon">
+                                        <img src="{{ contact_content.adress_icon.url }}">
+                                    </div>
+                                    <div class="contact__text">
+                                        <span>Address.</span>
+                                        <p>{{ contact_content.adress }}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact__icon">
+                                        <img src={{ contact_content.phone_icon.url }}>
+                                    </div>
+                                    <div class="contact__text">
+                                        <span>Phon Number</span>
+                                        <div class="contact__call d_flex a_items_center">
+                                            <a href="tel: {{ contact_content.phone1 }}">{{ contact_content.phone1 }}
+                                                , </a>
+                                            <a href="tel: {{ contact_content.phone2 }}">{{ contact_content.phone2 }}</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact__icon">
+                                        <img src="{{ contact_content.email_icon.url }}">
+                                    </div>
+                                    <div class="contact__text">
+                                        <span>E-mail</span>
+                                        <div class="contact__call d_flex a_items_center">
+                                            <a href="mailto: {{ contact_content.email1 }}">{{ contact_content.email1 }}
+                                                , </a>
+                                            <a href="mailto: {{ contact_content.email2 }}"> {{ contact_content.email2 }}</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="contact__form">
+                            <form action="{{ page.get_absolute_url }}" method="post">
+                                {% if send_status %}
+                                    <h2 style="color: green">{{ send_status }}</h2>
+                                {% endif %}
+                                {% csrf_token %}
+                                <div class="contact__block d_flex a_items_start j_content_between">
+                                    <div class="contact__cnt">
+                                        {{ contact_form.non_field_errors }}
+                                        <div class="contact__inp">
+                                            <label for="{{ contact_form.name.id_for_label }}">{{ contact_form.name.label }}</label>
+                                            <h2 style="color: red">{{ new_contact_message.name.errors }}</h2>
+                                            {{ contact_form.name }}
+                                        </div>
+                                        <div class="contact__inp">
+                                            <label for="{{ contact_form.phone.id_for_label }}">{{ contact_form.phone.label }}</label>
+                                            <h2 style="color: red">{{ new_contact_message.phone.errors }}</h2>
+                                            {{ contact_form.phone }}
+                                        </div>
+                                        <div class="contact__inp">
+                                            <label for="{{ contact_form.email.id_for_label }}">{{ contact_form.email.label }}</label>
+                                            <h2 style="color: red">{{ new_contact_message.email.errors }}</h2>
+                                            {{ contact_form.email }}
+                                        </div>
+                                    </div>
+                                    <div class="contact__textarea">
+                                        <label for="{{ contact_form.message.id_for_label }}">{{ contact_form.message.label }}</label>
+                                        <h2 style="color: red">{{ new_contact_message.message.errors }}</h2>
+                                        {{ contact_form.message }}
+                                    </div>
+                                </div>
+                                <div class="contact__flex d_flex j_content_end">
+                                    <div class="contact__btn">
+                                        <button type="submit" value="Submit">Send</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

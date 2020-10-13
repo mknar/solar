@@ -127,7 +127,7 @@ MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_RESTRICT_BY_DATE = False
-AWS_QUERYSTRING_AUTH  =  False
+AWS_QUERYSTRING_AUTH = False
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -144,4 +144,12 @@ CKEDITOR_CONFIGS = {
         ],
         'extraPlugins': 'youtube',
     }}
+
+
+# Mail configs
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'aa748dff3f9438'
+EMAIL_HOST_PASSWORD = '86eea31b99677a'
+EMAIL_PORT = '2525'
 

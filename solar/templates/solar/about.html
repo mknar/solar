@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="ecology__info d_flex a_items_end j_content_between">
+                <div class="ecology__text">
+                    <h2>{{ about_content.title }}</h2>
+                    <p>
+                        {% autoescape off %}
+                            {{ about_content.desc }}
+                        {% endautoescape %}
+                    </p>
+                </div>
+                <div class="ecology__fon">
+                    <img src="{{ about_content.image.url }}">
+                </div>
+            </div>
+            <div class="energy-long__info d_flex f_wrap">
+                <div class="energy-long__cnt">
+                    <a href="javascript:;">
+                        <div class="energy-long__icon">
+                            <img src="{{ about_content.icon1.url }}" alt="png">
+                        </div>
+                        <strong>{{ about_content.number1 }}</strong>
+                        <p>{{ about_content.text1 }}</p>
+                    </a>
+                </div>
+                <div class="energy-long__cnt">
+                    <a href="javascript:;">
+                        <div class="energy-long__icon">
+                            <img src="{{ about_content.icon2.url }}" alt="png">
+                        </div>
+                        <strong>{{ about_content.number2 }}</strong>
+                        <p>{{ about_content.text2 }}</p>
+                    </a>
+                </div>
+                <div class="energy-long__cnt">
+                    <a href="javascript:;">
+                        <div class="energy-long__icon">
+                            <img src="{{ about_content.icon3.url }}" alt="png">
+                        </div>
+                        <strong>{{ about_content.number3 }}</strong>
+                        <p>{{ about_content.text3 }}</p>
+                    </a>
+                </div>
+                <div class="energy-long__cnt">
+                    <a href="javascript:;">
+                        <div class="energy-long__icon">
+                            <img src="{{ about_content.icon4.url }}" alt="png">
+                        </div>
+                        <strong>{{ about_content.number4 }}</strong>
+                        <p>{{ about_content.text4 }}</p>
+                    </a>
+                </div>
+            </div>
+            <div class="extensive-company" style="background-image: url('{{ about_content.baner_img.url }}')">
+                <div class="extensive-company__main">
+                    <h2>{{ about_content.baner_title }}</h2>
+                    <p>
+                        {{ about_content.baner_text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
