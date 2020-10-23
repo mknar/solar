@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,6 +8,7 @@
     <meta name="description" content="{% block meta_description %}Home{% endblock %}">
     <meta name="keywords" content="{% block meta_keywords %}Home{% endblock %}">
     <title>{% block title %}Home{% endblock %}</title>
+    {% load i18n %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'solar/css/style.css' %}">
 </head>
@@ -24,14 +25,14 @@
                 <a href="mailto: Info@solar.com" class="header-href">
                     <img src="{% static 'solar/images/icon1.png' %}" alt="png">
                     <div class="header-link">
-                        <p>Send Messages</p>
+                        <p>{% trans 'Send Messages' %}</p>
                         <strong>{{ home_contact.email1 }}</strong>
                     </div>
                 </a>
                 <a href="javascript:;" class="header-href">
                     <img src="{% static 'solar/images/icon2.png' %}" alt="png">
                     <div class="header-link">
-                        <p>Office address</p>
+                        <p>{% trans 'Office address' %}</p>
                         <strong>{{ home_contact.adress }}</strong>
                     </div>
                 </a>
@@ -39,7 +40,7 @@
 
                     <img src="{% static 'solar/images/phone.png' %}" alt="png">
                     <div class="header-link">
-                        <p>Custumer Support</p>
+                        <p>{% trans 'Custumer Support' %}</p>
                         <strong>{{ home_contact.phone1 }}</strong>
                     </div>
                     <div class="href-phone d_none">
@@ -117,13 +118,21 @@
                         </div>
                     </div>
                 </div>
-                {#                <div class="header-languages">#}
-                {#                    <select>#}
-                {#                        <option value="English">English</option>#}
-                {#                        <option value="Russian">Russian</option>#}
-                {#                        <option value="Armenian">Armenian</option>#}
-                {#                    </select>#}
-                {#                </div>#}
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                    <input name="next" type="hidden" value="{{ redirect_to }}">
+                    <select name="language">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                    selected{% endif %}>
+                                {{ language.name_local }} ({{ language.code }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Go">
+                </form>
             </div>
         </div>
     </div>
@@ -210,7 +219,7 @@
 
 <script src="{% static 'solar/javascript/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'solar/javascript/jquery.fancybox.js' %}"></script>
-<script src="{% static 'solar/javascript/jquery.formstyler.min.js' %}"></script>
+{#<script src="{% static 'solar/javascript/jquery.formstyler.min.js' %}"></script>#}
 <script src="{% static 'solar/javascript/jquery.magnific-popup.js' %}"></script>
 <script src="{% static 'solar/javascript/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'solar/slick/slick.min.js' %}"></script>

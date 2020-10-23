@@ -2,6 +2,7 @@ from django.urls import path
 from solar.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('', index, name='home_page_url'),
@@ -11,5 +12,7 @@ urlpatterns = [
     path(ststic_page_url('products') + '/<str:category_slug>/', product_list, name='product_list_url'),
     path(ststic_page_url('products') + '/<str:category_slug>/<str:product_slug>', product_deatil, name='product_detail_url'),
 ]
+
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

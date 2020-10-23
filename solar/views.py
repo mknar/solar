@@ -4,6 +4,7 @@ from solar.models import *
 from solar.forms import *
 from django.core.mail import send_mail, BadHeaderError
 from django.core.paginator import Paginator
+from django.utils.translation import gettext as _
 
 
 # Create your views here.
@@ -123,13 +124,13 @@ class InfoPage:
                               'aa748dff3f9438',
                               ['narek19.96@mail.ru'],
                               fail_silently=False, )
-                    send_status = 'Succsess'
+                    send_status = _('Succsess')
                     return render(request, 'solar/' + page.static + '.html',
                                   context={'page': page, 'contact_content': contact_content, 'page_list': page_list,
                                            'contact_form': contact_form, 'send_status': send_status,
                                            'categorys': categorys})
                 except BadHeaderError:
-                    send_status = 'Something went wrong'
+                    send_status = _('Something went wrong')
                     return render(request, 'solar/' + page.static + '.html',
                                   context={'page': page, 'contact_content': contact_content, 'page_list': page_list,
                                            'contact_form': contact_form, 'send_status': send_status,

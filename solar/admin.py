@@ -1,6 +1,8 @@
 from django.contrib import admin
 from solar.models import *
 from django import forms
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from modeltranslation.admin import TranslationAdmin
 
 
 # Register your models here.
@@ -13,7 +15,18 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(gallery, GalleryAdmin)
 
 
-class Page_Admin(admin.ModelAdmin):
+class PageForm(forms.ModelForm):
+    content_ru = forms.CharField(widget=CKEditorUploadingWidget())
+    content_en = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = pages
+        fields = ['title', 'slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3',
+                  'video_url', 'page_gallery', 'seo_title', 'seo_description', 'seo_keywords', ]
+
+
+class Page_Admin(TranslationAdmin):
+    form = PageForm
     search_fields = ['title']
     list_display = ['title', 'active', 'to_menu']
     prepopulated_fields = {'slug': ('title',)}

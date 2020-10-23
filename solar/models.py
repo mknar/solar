@@ -4,7 +4,6 @@ from django.core.validators import FileExtensionValidator
 from ckeditor_uploader.fields import RichTextUploadingField
 import os
 
-
 # Create your models here.
 
 
