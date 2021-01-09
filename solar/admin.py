@@ -15,18 +15,7 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(gallery, GalleryAdmin)
 
 
-class PageForm(forms.ModelForm):
-    content_ru = forms.CharField(widget=CKEditorUploadingWidget())
-    content_en = forms.CharField(widget=CKEditorUploadingWidget())
-
-    class Meta:
-        model = pages
-        fields = ['title', 'slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3',
-                  'video_url', 'page_gallery', 'seo_title', 'seo_description', 'seo_keywords', ]
-
-
 class Page_Admin(TranslationAdmin):
-    form = PageForm
     search_fields = ['title']
     list_display = ['title', 'active', 'to_menu']
     prepopulated_fields = {'slug': ('title',)}
@@ -44,7 +33,7 @@ class Page_Admin(TranslationAdmin):
 admin.site.register(pages, Page_Admin)
 
 
-class Blog_Admin(admin.ModelAdmin):
+class Blog_Admin(TranslationAdmin):
     list_display = ['title', 'active', 'date']
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = (
@@ -60,7 +49,7 @@ class Blog_Admin(admin.ModelAdmin):
 admin.site.register(blog, Blog_Admin)
 
 
-class Service_Admin(admin.ModelAdmin):
+class Service_Admin(TranslationAdmin):
     list_display = ['title', 'active']
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = (
@@ -130,3 +119,21 @@ class FooterLinkAdmin(admin.ModelAdmin):
 
 
 admin.site.register(FotterLink, FooterLinkAdmin)
+
+
+class SubPageAdmin(admin.ModelAdmin):
+    search_fields = ['title']
+    list_display = ['title', 'active', 'to_menu']
+    prepopulated_fields = {'sub_slug': ('title',)}
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'sub_slug', 'active', 'content', 'to_menu', 'image', 'show_image', 'file', 'file2', 'file3',
+                       'video_url', 'page_gallery', 'main_page')
+        }),
+        ('SEO', {
+            'fields': ('seo_title', 'seo_description', 'seo_keywords',)
+        })
+    )
+
+
+admin.site.register(SubPage, SubPageAdmin)

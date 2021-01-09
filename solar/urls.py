@@ -2,11 +2,11 @@ from django.urls import path
 from solar.views import *
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('', index, name='home_page_url'),
     path('<str:slug>/', Page_Controller.as_view(), name='page_url'),
+    path('<str:slug>/<str:sub_slug>', SubPageController, name='sub_page_url'),
     path(ststic_page_url('blog') + '/<str:slug>/', blog_detail, name='blog_detail_url'),
     path(ststic_page_url('service') + '/<str:slug>/', service_detail, name='service_detail_url'),
     path(ststic_page_url('products') + '/<str:category_slug>/', product_list, name='product_list_url'),

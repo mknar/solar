@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from django.conf.urls.i18n import i18n_patterns
-from solar.views import *
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +28,8 @@ urlpatterns = [
 
 
 urlpatterns += i18n_patterns(
-    path('', include('solar.urls')),
-    prefix_default_language=False)
+    path('', include('solar.urls')), prefix_default_language=False
+)
 
 
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block content %}
     <section>
         {% if home_slides %}
@@ -98,7 +98,7 @@
                 <div class="about-services">
                     <div class="about-services__line">
                         <div class="about-services__box">
-                            <strong>Services</strong>
+                            <strong>{% trans 'Services' %}</strong>
                         </div>
                     </div>
                     <div class="about-services__item d_flex f_wrap">
@@ -393,7 +393,7 @@
             <div class="container">
                 <div class="latest-news">
                     <div class="latest-news__title">
-                        <h3>Latest News</h3>
+                        <h3>{% trans 'Latest News' %}</h3>
                     </div>
                     <div class="pages-blog d_flex f_wrap">
                         {% for blog in home_blogs %}

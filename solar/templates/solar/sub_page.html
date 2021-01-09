@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ block.super }}-{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}-
+    {% if sub_page.seo_title %}{{ sub_page.seo_title }}{% else %}{{ sub_page.title }}{% endif %}
+{% endblock %}
+
+{% block meta_description %}{{ sub_page.seo_description }}{% endblock %}
+
+{% block meta_keywords %}{{ sub_page.seo_keywords }}{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="category-fon">
+            <div class="container">
+                <div class="category-block">
+                    <ul>
+                        <li><a href="{{ page.get_absolute_url }}">{{ page.title|title }}</a></li>
+                        /
+                        <li><a href="{{ sub_page.get_absolute_url }}">{{ sub_page.title|title }}</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="preorder-pages">
+                <div class="preorder-pages__fon extensive-company">
+                    {% if sub_page.image and sub_page.show_image == "1" %}
+                        <img src="{{ sub_page.image.url }}" alt="png">
+                        <strong>{{ sub_page.title|title }}</strong>
+                    {% endif %}
+                </div>
+                <div class="preorder-pages__text">
+                    {% if sub_page.content %}
+                        <p>
+                            {% autoescape off %}
+                                {{ sub_page.content }}
+                            {% endautoescape %}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="solar-syustem">
+                    <ul>
+                        {% if sub_page.file %}
+                            <li>
+                                <a href="{{ sub_page.file.url }}">
+                                    <div class="solar-syustem__icon {{ sub_page.file_extension }}">
+                                    </div>
+                                    {{ file_name }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if sub_page.file2 %}
+                            <li>
+                                <a href="{{ sub_page.file2.url }}">
+                                    <div class="solar-syustem__icon {{ sub_page.file_extension2 }}">
+                                    </div>
+                                    {{ file_name2 }}
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if sub_page.file3 %}
+                            <li>
+                                <a href="{{ sub_page.file3.url }}">
+                                    <div class="solar-syustem__icon {{ sub_page.file_extension3 }}">
+                                    </div>
+                                    {{ file_name3 }}
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="solar-syustem__block">
+                    {% if sub_page.video_url %}
+                        <div class="solar-syustem__title">
+                            <strong>Video</strong>
+                        </div>
+                        <div class="solar-syustem__video">
+                            <iframe width="100%" height="100%"
+                                    src="https://www.youtube.com/embed/{{ page.video_url|cut:"https://www.youtube.com/watch?v=" }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                    {% endif %}
+                    {% if page_gallery %}
+                        <div class="solar-syustem__title">
+                            <strong>Gallerey</strong>
+                        </div>
+                        <div class="solar-gallery d_flex f_wrap">
+                            {% for img in page_gallery %}
+                                <a href="{{ img.image.url }}" data-fancybox="gallery">
+                                    <img src="{{ img.image.url }}" alt="{{ img.alt }}"
+                                         title="{{ img.title }}"/>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

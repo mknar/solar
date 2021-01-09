@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-21 14:16+0400\n"
+"POT-Creation-Date: 2020-10-30 19:58+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\Project_Solar\settings.py:120
+#: .\Project_Solar\settings.py:123
 msgid "English"
 msgstr ""
 
-#: .\Project_Solar\settings.py:121
+#: .\Project_Solar\settings.py:124
 msgid "Russian"
 msgstr ""
 
-#: .\Project_Solar\settings.py:122
+#: .\Project_Solar\settings.py:125
 msgid "Armenian"
 msgstr ""
 
-#: .\solar\templates\base.html:28
+#: .\solar\templates\base.html:29
 msgid "Send Messages"
 msgstr "Ուղարկել հաղորդագրություններ"
 
-#: .\solar\templates\base.html:35
+#: .\solar\templates\base.html:36
 msgid "Office address"
 msgstr "Գրասենյակի հասցեն"
 
-#: .\solar\templates\base.html:43
+#: .\solar\templates\base.html:44
 msgid "Custumer Support"
 msgstr "Հաճախորդների աջակցում"
+
+#: .\solar\templates\base.html:195
+msgid "© Solara, 2020. All rights reserved"
+msgstr "© Solara, 2020. Բոլոր իրավունքները պաշտպանված են"
+
+#: .\solar\templates\base.html:200
+msgid "Pages"
+msgstr "Էջեր"
+
+#: .\solar\templates\base.html:213
+msgid "Information"
+msgstr "Տեղեկատվություն"
+
+#: .\solar\templates\base.html:222
+msgid "Contact us"
+msgstr "Կապվեք մեզ հետ"
+
+#: .\solar\templates\solar\index.html:101
+msgid "Services"
+msgstr "Առայություններ"
+
+#: .\solar\templates\solar\index.html:396
+msgid "Latest News"
+msgstr "Վերջին նորություններ"
 
 #: .\solar\views.py:127
 msgid "Succsess"

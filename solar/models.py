@@ -4,6 +4,7 @@ from django.core.validators import FileExtensionValidator
 from ckeditor_uploader.fields import RichTextUploadingField
 import os
 
+
 # Create your models here.
 
 
@@ -103,6 +104,7 @@ class pages(models.Model):
     video_url = models.SlugField(max_length=250, verbose_name='YouTube Video ID', null=True, blank=True)
     page_gallery = models.ManyToManyField(gallery, blank=True)
 
+
     def file_extension(self):
         extension = os.path.splitext(self.file.name)[1]
         if extension == '.pdf':
@@ -139,6 +141,76 @@ class pages(models.Model):
     def clean(self):
         self.slug = self.slug.lower()
         return super(pages, self).save()
+
+    class Meta:
+        ordering = ['sort']
+
+
+class SubPage(models.Model):
+    title = models.CharField(max_length=25)
+    sub_slug = models.SlugField(max_length=65, unique=True, null=True, verbose_name='Change URL')
+    image = models.ImageField(upload_to='media/pages', null=True, blank=True, verbose_name='Cover image')
+    IMAGE_STATUS_CHOICES = (("0", 'Disabled'), ("1", 'Active'))
+    show_image = models.CharField(max_length=1, choices=IMAGE_STATUS_CHOICES, default="1")
+    content = RichTextUploadingField(blank=True, null=True,
+                                     external_plugin_resources=[
+                                         ('youtube', '/static/ckeditor/ckeditor/plugins/youtube/', 'plugin.js')])
+    STATIC_PAGE_CHOICES = (('contact', 'contact'), ('blog', 'blog'), ('null', 'null'))
+    static = models.CharField(max_length=25, choices=STATIC_PAGE_CHOICES, default='null')
+    seo_title = models.CharField(max_length=200, blank=True)
+    seo_description = models.TextField(max_length=900, blank=True)
+    seo_keywords = models.CharField(max_length=500, blank=True)
+    ACTIVE_STATUS_CHOICES = (("0", 'Disabled'), ("1", 'Active'))
+    active = models.CharField(choices=ACTIVE_STATUS_CHOICES, max_length=1, default="1")
+    TO_MENU_STATUS_CHOICES = (("0", 'Dont show'), ("1", 'Show'))
+    to_menu = models.CharField(choices=TO_MENU_STATUS_CHOICES, max_length=1, default="1", verbose_name='Show to menu')
+    sort = models.IntegerField(default=0)
+    file = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                            null=True, blank=True, verbose_name='Attach file')
+    file2 = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                             null=True, blank=True, verbose_name='Attach file')
+    file3 = models.FileField(upload_to='media/pages/files', validators=[FileExtensionValidator(['pdf', 'rtf', 'xlsx'])],
+                             null=True, blank=True, verbose_name='Attach file')
+    video_url = models.SlugField(max_length=250, verbose_name='YouTube Video ID', null=True, blank=True)
+    page_gallery = models.ManyToManyField(gallery, blank=True)
+    main_page = models.ForeignKey(pages, blank=True, on_delete=models.SET_NULL, null=True, related_name='sub_pages')
+
+    def file_extension(self):
+        extension = os.path.splitext(self.file.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
+
+    def file_extension2(self):
+        extension = os.path.splitext(self.file2.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
+
+    def file_extension3(self):
+        extension = os.path.splitext(self.file3.name)[1]
+        if extension == '.pdf':
+            return 'icon_pdf'
+        if extension == '.rtf':
+            return 'icon_rtf'
+        if extension == '.xlsx':
+            return 'icon_xlsx'
+
+    def get_absolute_url(self):
+        return reverse('sub_page_url', kwargs={'sub_slug': self.sub_slug, 'slug': self.main_page.slug})
+
+    def __str__(self):
+        return self.title
+
+    def clean(self):
+        self.sub_slug = self.sub_slug.lower()
+        return super(SubPage, self).save()
 
     class Meta:
         ordering = ['sort']
@@ -260,6 +332,9 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['name']
 
 
 class FotterLink(models.Model):

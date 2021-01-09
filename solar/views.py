@@ -41,6 +41,22 @@ def get_404_page(request, page, page_list, categorys):
     return response
 
 
+def SubPageController(request, slug, sub_slug):
+    page = get_object_or_404(pages, slug__iexact=slug, active="1")
+    sub_page = get_object_or_404(SubPage, sub_slug__iexact=sub_slug, active="1")
+    import os
+    file_name = os.path.split(sub_page.file.name)[1]
+    file_name2 = os.path.split(sub_page.file2.name)[1]
+    file_name3 = os.path.split(sub_page.file3.name)[1]
+    page_gallery = sub_page.page_gallery.all()
+    page_list = pages.objects.filter(active="1", to_menu="1")
+    categorys = Category.objects.filter(active="1")
+    return render(request, 'solar/sub_page.html',
+                  context={'page': page, 'sub_page': sub_page, 'page_list': page_list, 'file_name': file_name,
+                           'file_name2': file_name2,
+                           'file_name3': file_name3, 'page_gallery': page_gallery, 'categorys': categorys})
+
+
 def blog_detail(request, slug):
     blog_item = get_object_or_404(blog, active="1", slug__iexact=slug)
     other_blogs = blog.objects.filter(active="1").exclude(title=blog_item.title)[:8]

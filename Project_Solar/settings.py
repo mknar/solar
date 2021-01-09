@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'solar.middleware.AdminLocaleURLMiddleware',
 ]
 
 ROOT_URLCONF = 'Project_Solar.urls'
@@ -107,6 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'hy'
 
+ADMIN_LANGUAGE_CODE = 'en'
+
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -121,7 +125,6 @@ LANGUAGES = (
     ('ru', gettext('Russian')),
     ('hy', gettext('Armenian')),
 )
-
 
 # MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-21 14:25+0400\n"
+"POT-Creation-Date: 2020-10-30 19:41+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,29 +20,53 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\Project_Solar\settings.py:120
+#: .\Project_Solar\settings.py:123
 msgid "English"
 msgstr ""
 
-#: .\Project_Solar\settings.py:121
+#: .\Project_Solar\settings.py:124
 msgid "Russian"
 msgstr ""
 
-#: .\Project_Solar\settings.py:122
+#: .\Project_Solar\settings.py:125
 msgid "Armenian"
 msgstr ""
 
-#: .\solar\templates\base.html:28
+#: .\solar\templates\base.html:29
 msgid "Send Messages"
 msgstr "Отправить сообщения"
 
-#: .\solar\templates\base.html:35
+#: .\solar\templates\base.html:36
 msgid "Office address"
 msgstr "Адрес офиса"
 
-#: .\solar\templates\base.html:43
+#: .\solar\templates\base.html:44
 msgid "Custumer Support"
 msgstr "Служба поддержки"
+
+#: .\solar\templates\base.html:195
+msgid "© Solara, 2020. All rights reserved"
+msgstr "© Solara, 2020. Все права защищены."
+
+#: .\solar\templates\base.html:200
+msgid "Pages"
+msgstr "Страницы"
+
+#: .\solar\templates\base.html:213
+msgid "Information"
+msgstr "Информация"
+
+#: .\solar\templates\base.html:222
+msgid "Contact us"
+msgstr "Свяжитесь с нами"
+
+#: .\solar\templates\solar\index.html:101
+msgid "Services"
+msgstr "Сервисы"
+
+#: .\solar\templates\solar\index.html:396
+msgid "Latest News"
+msgstr "Последние новости"
 
 #: .\solar\views.py:127
 msgid "Succsess"
